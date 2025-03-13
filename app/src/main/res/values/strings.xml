@@ -9,4 +9,15 @@
     <string name="login_to_continue">请登录以继续</string>
     <string name="username_hint">请输入用户名</string>
     <string name="password_hint">请输入密码</string>
+
+    <!-- 新增字符串 -->
+    <string name="web_search_title">Google 搜索</string>
+    <string name="web_search_desc">使用内嵌浏览器搜索信息</string>
+    <string name="documentation_title">DaoCloud 文档</string>
+    <string name="documentation_desc">浏览DaoCloud技术文档</string>
+    <string name="back">返回</string>
+
+    <!-- Tab导航相关 -->
+    <string name="tab_web_search">搜索</string>
+    <string name="tab_documentation">文档</string>
 </resources> 

@@ -17,28 +17,32 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
     fun onUsernameChange(username: String) {
-        _uiState.update { it.copy(username = username) }
+        _uiState.update { it.copy(username = username, errorMessage = null) }
     }
 
     fun onPasswordChange(password: String) {
-        _uiState.update { it.copy(password = password) }
+        _uiState.update { it.copy(password = password, errorMessage = null) }
     }
 
     fun onLoginClick() {
         viewModelScope.launch {
-            _uiState.update { it.copy(isLoading = true) }
+            _uiState.update { it.copy(isLoading = true, errorMessage = null) }
             
             // 模拟网络请求延迟
             kotlinx.coroutines.delay(1000)
-            
-            // 简单的验证逻辑，实际应用中应该调用 API
-            val isLoginSuccessful = _uiState.value.username.isNotBlank() && _uiState.value.password.isNotBlank()
+
+            // 使用固定的用户名和密码进行验证
+            val isLoginSuccessful =
+                _uiState.value.username == "user" && _uiState.value.password == "password"
             
             _uiState.update { 
                 it.copy(
                     isLoading = false,
                     isLoginSuccessful = isLoginSuccessful,
-                    errorMessage = if (!isLoginSuccessful) "用户名或密码不正确" else null
+                    errorMessage = if (!isLoginSuccessful && (it.username.isNotEmpty() || it.password.isNotEmpty()))
+                        "用户名或密码不正确"
+                    else
+                        null
                 )
             }
         }
