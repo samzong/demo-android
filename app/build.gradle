@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.sample.demo"
         minSdk 24
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -39,6 +39,7 @@ android {
     }
     buildFeatures {
         compose true
+        dataBinding true
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
@@ -93,10 +94,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
     
     // Testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.2.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.6.1"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.7.8"
+    debugImplementation "androidx.compose.ui:ui-tooling:1.7.8"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:1.7.8"
 } 
