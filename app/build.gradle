@@ -36,6 +36,7 @@ android {
         jvmTarget = '17'
         freeCompilerArgs += ["-Xjvm-default=all"]
         freeCompilerArgs += "-Xskip-metadata-version-check"
+        freeCompilerArgs += "-Xno-optimized-callable-references"
     }
     buildFeatures {
         compose true
@@ -87,7 +88,11 @@ dependencies {
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
-    
+
+    // DataStore
+    implementation "androidx.datastore:datastore-preferences:1.1.0"
+    implementation "androidx.datastore:datastore-preferences-core:1.1.0"
+
     // Testing
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.2.1"

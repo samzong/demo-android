@@ -8,5 +8,6 @@ sealed class Screen(val route: String) {
     sealed class MainTab(val route: String) {
         object WebSearch : MainTab("web_search")
         object Documentation : MainTab("documentation")
+        object Profile : MainTab("profile")
     }
 } 

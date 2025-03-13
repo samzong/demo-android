@@ -20,4 +20,10 @@
     <!-- Tab导航相关 -->
     <string name="tab_web_search">搜索</string>
     <string name="tab_documentation">文档</string>
+    <string name="tab_profile">我的</string>
+
+    <!-- 个人资料页面 -->
+    <string name="profile_title">个人资料</string>
+    <string name="device_id">设备码</string>
+    <string name="logout">退出登录</string>
 </resources> 

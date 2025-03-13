@@ -2,6 +2,7 @@ package com.sample.demo.presentation.screens.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sample.demo.data.UserPreferencesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,7 +12,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor() : ViewModel() {
+class LoginViewModel @Inject constructor(
+    private val userPreferencesRepository: UserPreferencesRepository
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
@@ -34,6 +37,11 @@ class LoginViewModel @Inject constructor() : ViewModel() {
             // 使用固定的用户名和密码进行验证
             val isLoginSuccessful =
                 _uiState.value.username == "user" && _uiState.value.password == "password"
+
+            if (isLoginSuccessful) {
+                // 保存登录状态
+                userPreferencesRepository.saveLoginState(true, _uiState.value.username)
+            }
             
             _uiState.update { 
                 it.copy(
