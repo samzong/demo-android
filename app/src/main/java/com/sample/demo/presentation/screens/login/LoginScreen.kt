@@ -85,11 +85,11 @@ private fun LoginContent(
             
             Spacer(modifier = Modifier.height(8.dp))
             
-            Text(
-                text = stringResource(R.string.login_to_continue),
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+//            Text(
+//                text = stringResource(R.string.login_to_continue),
+//                style = MaterialTheme.typography.bodyLarge,
+//                color = MaterialTheme.colorScheme.onSurfaceVariant
+//            )
             
             Spacer(modifier = Modifier.height(32.dp))
             
